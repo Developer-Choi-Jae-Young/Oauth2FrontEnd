@@ -13,12 +13,12 @@ const Login: React.FC<LoginProps> = ({ onSdkLoginSuccess }) => {
       alert('Kakao SDK가 로드되지 않았습니다.');
       return;
     }
-
+    
     window.Kakao.Auth.login({
       success: async (authObj: any) => {
         console.log('SDK Login Success:', authObj);
         try {
-      const response = await fetch('http://localhost:8080/sdk/oauth2/authorization/kakao', {
+        const response = await fetch('http://localhost:8080/sdk/oauth2/authorization/kakao', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -26,11 +26,8 @@ const Login: React.FC<LoginProps> = ({ onSdkLoginSuccess }) => {
         body: JSON.stringify({
           authObj: authObj
         })
-      });
-
-      if (response.ok) {
-        window.location.href = '/main';
-      }
+      }).then(response => response.json())
+      .then(data => console.log(data));
     } catch (err) {
       console.error('Backend Auth Failed:', err);
     }
@@ -40,6 +37,10 @@ const Login: React.FC<LoginProps> = ({ onSdkLoginSuccess }) => {
         console.error('SDK Login Failed:', err);
       },
     });
+
+    //  window.Kakao.Auth.authorize({
+    //   redirectUri: 'http://localhost:5173'
+    // });
   };
 
   const handleSpringLogin = () => {
