@@ -1,9 +1,56 @@
+.app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f0f2f5;
+}
+
+.app-header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  display: flex;
+  justify-content: center;
+  padding: 12px 16px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-tabs {
+  display: flex;
+  gap: 12px;
+  background-color: #f1f5f9;
+  padding: 4px;
+  border-radius: 10px;
+}
+
+.nav-tab {
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #64748b;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.nav-tab:hover {
+  color: #1e293b;
+}
+
+.nav-tab.active {
+  background-color: #ffffff;
+  color: #2563eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
 .app-container {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background-color: #f0f2f5;
+  padding: 24px 16px;
   font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
 }
 
@@ -178,9 +225,16 @@
   margin: 10px 0;
 }
 
-.custom-kakao-button {
-  background-color: #FEE500;
-  color: #3c1e1e;
+.provider-section-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #444;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.custom-social-button {
   width: 100%;
   max-width: 300px;
   padding: 12px;
@@ -191,6 +245,39 @@
   gap: 8px;
   font-weight: bold;
   font-size: 14px;
+  box-sizing: border-box;
+}
+
+.kakao-btn {
+  background-color: #FEE500;
+  color: #3c1e1e;
+}
+
+.apple-login-button-styled {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.apple-login-button-styled:hover {
+  transform: translateY(-2px);
+}
+
+.apple-btn {
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
+}
+
+.apple-btn-outline {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
 }
 
 .spring-button {
